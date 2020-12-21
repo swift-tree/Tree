@@ -29,6 +29,6 @@ final class TreeTests: XCTestCase {
 
 enum Child: ChildrenProtocol, Equatable {
   indirect case next(Tree<Int, Self>)
-  static let empty: Self = .next(.empty)
+  static var empty: Self { .next(.empty) }
   var height: Int {6}
 }
