@@ -3,37 +3,37 @@ import Tree
 
 final class TreeTests: XCTestCase {
   func test_value_get() {
-    let tree = Tree<Int, Child>.node(value: 0, .empty)
+    let tree = LinkedList<Int>.node(value: 0, .noChildren)
 
     XCTAssertEqual(tree.value, 0)
   }
 
   func test_value_set() {
-    var tree = Tree<Int, Child>.node(value: 0, .empty)
+    var tree = LinkedList<Int>.node(value: 0, .noChildren)
 
     tree.value = 1
 
-    XCTAssertEqual(tree.value, 1)
+    XCTAssertEqual(tree, .node(value: 1, .noChildren))
   }
 
   func test_children_get() {
-    let tree = Tree<Int, Child>.node(value: 0, .next(.node(value: 1, .empty)))
+    let tree = LinkedList<Int>.node(value: 0, .init(.node(value: 1, .noChildren)))
 
-    XCTAssertEqual(tree.children, .next(.node(value: 1, .empty)))
+    XCTAssertEqual(tree.children, .init(.node(value: 1, .noChildren)))
   }
 
   func test_children_set() {
-    var tree = Tree<Int, Child>.node(value: 0, .next(.node(value: 1, .empty)))
+    var tree = LinkedList<Int>.node(value: 0, .init(.node(value: 1, .noChildren)))
 
-    tree.children = .empty
+    tree.children = .noChildren
 
-    XCTAssertEqual(tree.children, .empty)
+    XCTAssertEqual(tree, .node(value: 0, .noChildren))
   }
 
   func test_height() {
-    let tree = Tree<Int, Child>.node(value: 0, .next(.node(value: 1, .empty)))
+    let tree = LinkedList<Int>.node(value: 0, .init(.node(value: 1, .noChildren)))
 
-    XCTAssertEqual(tree.height, 7)
+    XCTAssertEqual(tree.height, 2)
   }
 
   static var allTests = [
@@ -43,10 +43,4 @@ final class TreeTests: XCTestCase {
     ("test_children_set", test_children_set),
     ("test_height", test_height)
   ]
-}
-
-enum Child: ChildrenProtocol, Equatable {
-  indirect case next(Tree<Int, Self>)
-  static var empty: Self { .next(.empty) }
-  var height: Int {6}
 }
