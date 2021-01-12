@@ -17,8 +17,23 @@ final class LinkedListTests: XCTestCase {
     XCTAssertNil(tree.next?.next?.next?.next)
   }
 
+  func test_insert_node() {
+    let tree = LinkedList<Int>.node(value: 0, .init(.node(value: 1, .noChildren)))
+
+    XCTAssertEqual(tree.insert(2), .node(value: 0, .init(.node(value: 1,  .init(.node(value: 2, .noChildren))))))
+  }
+
+  func test_insert_empty() {
+    let tree = LinkedList<Int>.empty
+
+    XCTAssertEqual(tree.insert(2), .node(value: 2, .noChildren))
+    XCTAssertEqual(tree.insert(2).insert(3), .node(value: 2, .init(.node(value: 3,  .noChildren))))
+  }
+
   static var allTests = [
     ("test_next", test_next),
-    ("test_height", test_height)
+    ("test_height", test_height),
+    ("test_insert_node", test_insert_node),
+    ("test_insert_empty", test_insert_empty)
   ]
 }

@@ -20,3 +20,16 @@ public extension Tree where Children == Child<Element>, Element: Equatable {
     }
   }
 }
+
+public extension LinkedList where Children == Child<Element>, Element: Equatable {
+  func insert(_ e: Element) -> Self {
+    switch self {
+    case .empty:
+      return .node(value: e, .noChildren)
+    case .node(value: let value, .noChildren):
+      return .node(value: value, .init(.node(value: e, .noChildren)))
+    case let .node(value: value, children):
+      return .node(value: value, .init(children.next.insert(e)))
+    }
+  }
+}
