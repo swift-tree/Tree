@@ -15,7 +15,7 @@ let package = Package(
 )
 ```
 ## Use cases
-See [BinaryTree](https://github.com/erkekin/BinaryTree) to see hot this is used.
+See [BinaryTree](https://github.com/erkekin/BinaryTree) to see how this is used.
 
 Erk Ekin
 
