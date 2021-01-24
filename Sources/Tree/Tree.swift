@@ -1,4 +1,4 @@
-public enum Tree<Element, Children: ChildrenProtocol> {
+public enum Tree<Element, Children: DescendentProtocol> {
   case empty
   indirect case node(value: Element, Children)
 }
