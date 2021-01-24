@@ -22,6 +22,10 @@ public extension Tree where Children == Child<Element>, Element: Equatable {
 }
 
 public extension LinkedList where Children == Child<Element>, Element: Equatable {
+  mutating func inserting(_ e: Element) {
+    self = insert(e)
+  }
+
   func insert(_ e: Element) -> Self {
     switch self {
     case .empty:
