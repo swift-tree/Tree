@@ -10,10 +10,10 @@ public struct Child<T>: DescendentProtocol {
 extension Child: Equatable where T: Equatable {}
 extension Child: Hashable where T: Hashable {}
 
-public extension LinkedList where Children == Child<Element>, Element: Equatable {
+public extension LinkedList where Children == Child<Element> {
   var next: Tree? {
     switch self {
-    case .empty, .node(value: _, .noDescendent):
+    case .empty:
       return nil
     case let .node(value: _, child):
       return child.next
