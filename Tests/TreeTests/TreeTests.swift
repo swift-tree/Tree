@@ -3,13 +3,13 @@ import XCTest
 
 final class TreeTests: XCTestCase {
   func test_value_get() {
-    let tree = LinkedList<Int>.leaf(0)
+    let tree = IntLinkedList.leaf(0)
 
     XCTAssertEqual(tree.value, 0)
   }
 
   func test_value_set() {
-    var tree = LinkedList<Int>.node(value: 0, .noDescendent)
+    var tree = IntLinkedList.node(value: 0, .noDescendent)
 
     tree.value = 1
 
@@ -17,13 +17,13 @@ final class TreeTests: XCTestCase {
   }
 
   func test_children_get() {
-    let tree = LinkedList<Int>.node(value: 0, .init(.leaf(1)))
+    let tree = IntLinkedList.node(value: 0, .init(.leaf(1)))
 
     XCTAssertEqual(tree.descentent, .init(.leaf(1)))
   }
 
   func test_children_set() {
-    var tree = LinkedList<Int>.node(value: 0, .init(.leaf(1)))
+    var tree = IntLinkedList.node(value: 0, .init(.leaf(1)))
 
     tree.descentent = .noDescendent
 
@@ -31,7 +31,7 @@ final class TreeTests: XCTestCase {
   }
 
   func test_height() {
-    let tree = LinkedList<Int>.node(value: 0, .init(.leaf(1)))
+    let tree = IntLinkedList.node(value: 0, .init(.leaf(1)))
 
     XCTAssertEqual(tree.height, 2)
   }

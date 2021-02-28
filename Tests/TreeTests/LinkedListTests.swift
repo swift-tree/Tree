@@ -1,9 +1,9 @@
 import Tree
 import XCTest
 
-final class LinkedListTests: XCTestCase {
-  private typealias IntLinkedList = LinkedList<Int>
+typealias IntLinkedList = LinkedList<Int>
 
+final class LinkedListTests: XCTestCase {
   func test_height() {
     let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .init(.node(value: 2, .init(.leaf(3)))))))
 
