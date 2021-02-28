@@ -1,10 +1,10 @@
 public extension Tree {
   var descentent: Descendent? {
-    get{
+    get {
       guard case let .node(value: _, children) = self else { return nil }
       return children
     }
-    set{
+    set {
       guard case let .node(value: value, _) = self, let children = newValue else { return }
       self = .node(value: value, children)
     }

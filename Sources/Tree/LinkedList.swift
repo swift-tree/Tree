@@ -11,10 +11,10 @@ extension Child: Equatable where T: Equatable {}
 extension Child: Hashable where T: Hashable {}
 
 public extension LinkedList where Descendent == Child<Element> {
-  var next: Tree? {
+  var next: Tree {
     switch self {
     case .empty:
-      return nil
+      return .empty
     case let .node(value: _, child):
       return child.next
     }
@@ -24,7 +24,7 @@ public extension LinkedList where Descendent == Child<Element> {
 extension LinkedList: ExpressibleByArrayLiteral where Descendent == Child<Element>, Element: Equatable {
   public init(_ elements: [Element]) {
     var linkedList: Self = .empty
-    elements.forEach{linkedList.inserting($0)}
+    elements.forEach { linkedList.inserting($0) }
     self = linkedList
   }
 
@@ -40,7 +40,7 @@ extension LinkedList: ExpressibleByArrayLiteral where Descendent == Child<Elemen
     switch self {
     case .empty:
       return .node(value: e, .noDescendent)
-    case .node(value: let value, .noDescendent):
+    case let .node(value: value, .noDescendent):
       return .node(value: value, .init(.node(value: e, .noDescendent)))
     case let .node(value: value, children):
       return .node(value: value, .init(children.next.insert(e)))

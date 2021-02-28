@@ -8,16 +8,19 @@ let package = Package(
   products: [
     .library(
       name: "Tree",
-      targets: ["Tree"]),
+      targets: ["Tree"]
+    ),
   ],
   dependencies: [
   ],
   targets: [
     .target(
       name: "Tree",
-      dependencies: []),
+      dependencies: []
+    ),
     .testTarget(
       name: "TreeTests",
-      dependencies: ["Tree"]),
+      dependencies: ["Tree"]
+    ),
   ]
 )

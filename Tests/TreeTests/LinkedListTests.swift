@@ -1,27 +1,26 @@
-import XCTest
 import Tree
+import XCTest
 
 final class LinkedListTests: XCTestCase {
   private typealias IntLinkedList = LinkedList<Int>
 
   func test_height() {
-    let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .init(.node(value: 2, .init(.node(value: 3, .noDescendent)))))))
+    let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .init(.node(value: 2, .init(.leaf(3)))))))
 
     XCTAssertEqual(tree.height, 4)
   }
 
   func test_next() {
-    let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .init(.node(value: 2, .init(.node(value: 3, .noDescendent)))))))
+    let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .init(.node(value: 2, .init(.leaf(3)))))))
 
     XCTAssertEqual(tree.next, .init([1, 2, 3]))
-    XCTAssertEqual(tree.next?.next, .init([2, 3]))
-    XCTAssertEqual(tree.next?.next?.next, .init([3]))
-    XCTAssertEqual(tree.next?.next?.next?.next, .empty)
-    XCTAssertNil(tree.next?.next?.next?.next?.next)
+    XCTAssertEqual(tree.next.next, .init([2, 3]))
+    XCTAssertEqual(tree.next.next.next, .init([3]))
+    XCTAssertEqual(tree.next.next.next.next, .empty)
   }
 
   func test_insert_node() {
-    let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .noDescendent)))
+    let tree = IntLinkedList.node(value: 0, .init(.leaf(1)))
 
     XCTAssertEqual(tree.insert(2), .init([0, 1, 2]))
   }
@@ -67,6 +66,6 @@ final class LinkedListTests: XCTestCase {
     ("test_insert_empty_array_literal", test_insert_empty_array_literal),
     ("test_inserting_empty", test_inserting_empty),
     ("test_insert_value", test_insert_value),
-    ("test_insert_children", test_insert_children)
+    ("test_insert_children", test_insert_children),
   ]
 }

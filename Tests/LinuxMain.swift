@@ -1,5 +1,5 @@
-import XCTest
 import TreeTests
+import XCTest
 
 var tests = [XCTestCaseEntry]()
 tests += TreeTests.allTests()
