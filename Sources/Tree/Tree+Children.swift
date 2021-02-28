@@ -1,5 +1,5 @@
 public extension Tree {
-  var children: Children? {
+  var descentent: Descendent? {
     get{
       guard case let .node(value: _, children) = self else { return nil }
       return children

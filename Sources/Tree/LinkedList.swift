@@ -10,7 +10,7 @@ public struct Child<T>: DescendentProtocol {
 extension Child: Equatable where T: Equatable {}
 extension Child: Hashable where T: Hashable {}
 
-public extension LinkedList where Children == Child<Element> {
+public extension LinkedList where Descendent == Child<Element> {
   var next: Tree? {
     switch self {
     case .empty:
@@ -21,7 +21,7 @@ public extension LinkedList where Children == Child<Element> {
   }
 }
 
-extension LinkedList: ExpressibleByArrayLiteral where Children == Child<Element>, Element: Equatable {
+extension LinkedList: ExpressibleByArrayLiteral where Descendent == Child<Element>, Element: Equatable {
   public init(_ elements: [Element]) {
     var linkedList: Self = .empty
     elements.forEach{linkedList.inserting($0)}

@@ -1,7 +1,7 @@
-public enum Tree<Element, Children: DescendentProtocol> {
+public enum Tree<Element, Descendent: DescendentProtocol> {
   case empty
-  indirect case node(value: Element, Children)
+  indirect case node(value: Element, Descendent)
 }
 
-extension Tree: Equatable where Element: Equatable, Children: Equatable {}
-extension Tree: Hashable where Element: Hashable, Children: Hashable {}
+extension Tree: Equatable where Element: Equatable, Descendent: Equatable {}
+extension Tree: Hashable where Element: Hashable, Descendent: Hashable {}

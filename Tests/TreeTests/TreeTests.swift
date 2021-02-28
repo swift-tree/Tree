@@ -19,13 +19,13 @@ final class TreeTests: XCTestCase {
   func test_children_get() {
     let tree = LinkedList<Int>.node(value: 0, .init(.node(value: 1, .noDescendent)))
 
-    XCTAssertEqual(tree.children, .init(.node(value: 1, .noDescendent)))
+    XCTAssertEqual(tree.descentent, .init(.node(value: 1, .noDescendent)))
   }
 
   func test_children_set() {
     var tree = LinkedList<Int>.node(value: 0, .init(.node(value: 1, .noDescendent)))
 
-    tree.children = .noDescendent
+    tree.descentent = .noDescendent
 
     XCTAssertEqual(tree, .node(value: 0, .noDescendent))
   }

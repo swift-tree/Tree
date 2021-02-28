@@ -3,6 +3,7 @@ import Tree
 
 final class LinkedListTests: XCTestCase {
   private typealias IntLinkedList = LinkedList<Int>
+
   func test_height() {
     let tree = IntLinkedList.node(value: 0, .init(.node(value: 1, .init(.node(value: 2, .init(.node(value: 3, .noDescendent)))))))
 
@@ -15,7 +16,8 @@ final class LinkedListTests: XCTestCase {
     XCTAssertEqual(tree.next, .init([1, 2, 3]))
     XCTAssertEqual(tree.next?.next, .init([2, 3]))
     XCTAssertEqual(tree.next?.next?.next, .init([3]))
-    XCTAssertNil(tree.next?.next?.next?.next)
+    XCTAssertEqual(tree.next?.next?.next?.next, .empty)
+    XCTAssertNil(tree.next?.next?.next?.next?.next)
   }
 
   func test_insert_node() {
@@ -54,7 +56,7 @@ final class LinkedListTests: XCTestCase {
   func test_insert_children() {
     let tree = IntLinkedList.empty.insert(1)
 
-    XCTAssertEqual(tree.children, .init(.empty))
+    XCTAssertEqual(tree.descentent, .init(.empty))
   }
 
   static var allTests = [
