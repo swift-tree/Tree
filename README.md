@@ -10,12 +10,12 @@ A general purpose, value-typed tree structure in Swift.
 ```swift
 let package = Package(
     dependencies: [
-        .package(url: "https://github.com/erkekin/Tree.git", ...)
+        .package(url: "https://github.com/swift-tree/Tree.git", ...)
     ]
 )
 ```
 ## Use cases
-See [BinaryTree](https://github.com/erkekin/BinaryTree) to see how this is used.
+See [BinaryTree](https://github.com/swift-tree/BinaryTree) to see how this is used.
 
 Erk Ekin
 
