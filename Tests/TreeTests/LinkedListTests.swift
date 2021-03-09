@@ -52,10 +52,10 @@ final class LinkedListTests: XCTestCase {
     XCTAssertEqual(tree.value, 1)
   }
 
-  func test_insert_children() {
+  func test_insert_descendent() {
     let tree = IntLinkedList.empty.insert(1)
 
-    XCTAssertEqual(tree.descentent, .init(.empty))
+    XCTAssertEqual(tree.descendent, .init(.empty))
   }
 
   static var allTests = [
@@ -66,6 +66,6 @@ final class LinkedListTests: XCTestCase {
     ("test_insert_empty_array_literal", test_insert_empty_array_literal),
     ("test_inserting_empty", test_inserting_empty),
     ("test_insert_value", test_insert_value),
-    ("test_insert_children", test_insert_children),
+    ("test_insert_descendent", test_insert_descendent),
   ]
 }

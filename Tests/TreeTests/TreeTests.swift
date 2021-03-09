@@ -16,16 +16,16 @@ final class TreeTests: XCTestCase {
     XCTAssertEqual(tree, .leaf(1))
   }
 
-  func test_children_get() {
+  func test_descendent_get() {
     let tree = IntLinkedList.node(value: 0, .init(.leaf(1)))
 
-    XCTAssertEqual(tree.descentent, .init(.leaf(1)))
+    XCTAssertEqual(tree.descendent, .init(.leaf(1)))
   }
 
-  func test_children_set() {
+  func test_descendent_set() {
     var tree = IntLinkedList.node(value: 0, .init(.leaf(1)))
 
-    tree.descentent = .noDescendent
+    tree.descendent = .noDescendent
 
     XCTAssertEqual(tree, .node(value: 0, .noDescendent))
   }
@@ -39,8 +39,8 @@ final class TreeTests: XCTestCase {
   static var allTests = [
     ("test_value_get", test_value_get),
     ("test_value_set", test_value_set),
-    ("test_children_get", test_children_get),
-    ("test_children_set", test_children_set),
+    ("test_descendent_get", test_descendent_get),
+    ("test_descendent_set", test_descendent_set),
     ("test_height", test_height),
   ]
 }
