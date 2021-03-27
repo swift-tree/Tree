@@ -17,10 +17,6 @@ public extension LinkedList where Descendent == Child<Element> {
     self = linkedList
   }
 
-  init(arrayLiteral elements: Element...) {
-    self = LinkedList(elements)
-  }
-
   mutating func inserting(_ e: Element) {
     self = insert(e)
   }
@@ -41,5 +37,11 @@ public extension LinkedList where Descendent == Child<Element> {
     case let .node(value: _, child):
       return child.next
     }
+  }
+}
+
+extension LinkedList: ExpressibleByArrayLiteral where Descendent == Child<Element> {
+  public init(arrayLiteral elements: Element...) {
+    self = LinkedList(elements)
   }
 }
